@@ -24,21 +24,24 @@ cardImage: "images/king-of-diamonds.png"
 var cardsInPlay = [];
 //cardsInPlay.push(cards[cardId].rank);
 var checkForMatch = function() {
-	if (cardsInPlay[0] === cardsInPlay[1]) {
+	if (cardsInPlay.length === 2) {
+		if (cardsInPlay[0] === cardsInPlay[1]) {
 		console.log("You found a match!");
-	alert("You found a match!");
+		alert("You found a match!");
 	} else {
 		console.log("Sorry, try again.");
-	alert("Sorry, try again!");
+		alert("Sorry, try again!");
+		}
 	}
+	
 }
 var flipCard = function() {
 	var cardId = this.getAttribute('data-id', 'cardsInPlay');
+	cardsInPlay.push(cards[cardId].rank);
 	console.log("User flipped " + cards[cardId].rank + " of " + cards[cardId].suit);
 	checkForMatch();
 	this.setAttribute('src', cards[cardId].cardImage);
 	console.log(cards[cardId].cardImage);
-	cardsInPlay.push(cards[cardId].rank);
 	//console.log(cards[cardId].suit);
 }
 
